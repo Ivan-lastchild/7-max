@@ -7,19 +7,19 @@ console.log(maxLoop(arr));
 console.log(maxRecurtion(arr));
 
 function maxLoop(arr){
-    let index = arr[0];
+    let maxNum = arr[0];
 
     for(let i = 1; i<=arr.length; i++){
-        index = index<=arr[i] ? index = arr[i] : index;
+        maxNum = maxNum <= arr[i] ? arr[i] : maxNum;
     }
-    return index;
+    return maxNum;
 }
            
 function maxRecurtion(arr){
     if(arr.length > 2){
-        let index = arr[0];
+        let maxNum = arr[0];
         arr.splice(0, 1);
-        return maxRecurtion([index, maxRecurtion(arr)]);
+        return maxRecurtion([maxNum, maxRecurtion(arr)]);
     } else if(arr.length == 2){
         return arr[0] >= arr[1] ? arr[0] : arr[1];
     } else {
